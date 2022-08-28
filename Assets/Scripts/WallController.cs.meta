@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a9e9455500cde184e801c83904808fb3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _audioSourse: {instanceID: 0}
+  - _wallPunchSound: {fileID: 8300000, guid: 2f711f2f87c2d0242b70cf9154ae6095, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
