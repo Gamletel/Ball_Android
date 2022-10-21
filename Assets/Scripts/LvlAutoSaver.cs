@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using static GlobalVars.Vars;
 
 public class LvlAutoSaver : MonoBehaviour
 {
-    //Нужен для автоматического сохранения при загрузке нового уровня
+    //РќСѓР¶РµРЅ РґР»СЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕ СЃРѕС…СЂР°РЅРµРЅРёСЏ РїСЂРё Р·Р°РіСЂСѓР·РєРµ РЅРѕРІРѕРіРѕ СѓСЂРѕРІРЅСЏ
     private void Start()
     {
         saveSystem.SaveLastLvl();

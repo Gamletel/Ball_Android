@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     private int _coinCost = 2;
 
-
-    //Если игрок зашел в триггер монетки, тогда добавляем монетку
+    //Р•СЃР»Рё РёРіСЂРѕРє Р·Р°С€РµР» РІ С‚СЂРёРіРіРµСЂ РјРѕРЅРµС‚РєРё, С‚РѕРіРґР° РґРѕР±Р°РІР»СЏРµРј РјРѕРЅРµС‚РєСѓ
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(typeof(PlayerController), out Component component))
@@ -15,7 +12,7 @@ public class CoinController : MonoBehaviour
         }
     }
 
-    //Метод для добавления монетки и её последующего уничтожения
+    //РњРµС‚РѕРґ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РјРѕРЅРµС‚РєРё Рё РµС‘ РїРѕСЃР»РµРґСѓСЋС‰РµРіРѕ СѓРЅРёС‡С‚РѕР¶РµРЅРёСЏ
     private void AddCoin(int coinCost)
     {
         CoinBank.OnCoinCollected(coinCost);

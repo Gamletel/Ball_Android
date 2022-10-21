@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetForCameraMovement : MonoBehaviour
@@ -11,7 +9,6 @@ public class TargetForCameraMovement : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         
     }
-
 
     private void Update()
     {

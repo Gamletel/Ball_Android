@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using static GlobalVars.Vars;
 
 public class TimerController : MonoBehaviour
 {
@@ -20,12 +17,12 @@ public class TimerController : MonoBehaviour
         _newColorForSprite = _img.color;
         StartCoroutine(Timer());
 
-        //Это чтобы анимация длилась столько, сколько длится уровень
+        //Р­С‚Рѕ С‡С‚РѕР±С‹ Р°РЅРёРјР°С†РёСЏ РґР»РёР»Р°СЃСЊ СЃС‚РѕР»СЊРєРѕ, СЃРєРѕР»СЊРєРѕ РґР»РёС‚СЃСЏ СѓСЂРѕРІРµРЅСЊ
         _timerParticleAnimator = _timerParticle.GetComponent<Animator>();
         _timerParticleAnimator.speed = 1 / _maxTime * 2; 
     }
 
-    //Таймер (картинка) уменьшается в зависимости от оставшегося времени
+    //РўР°Р№РјРµСЂ (РєР°СЂС‚РёРЅРєР°) СѓРјРµРЅСЊС€Р°РµС‚СЃСЏ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РѕСЃС‚Р°РІС€РµРіРѕСЃСЏ РІСЂРµРјРµРЅРё
     private IEnumerator Timer()
     {
         while(_curTime != 0)
@@ -37,12 +34,12 @@ public class TimerController : MonoBehaviour
             ChangeTimerParticle(percent);
         }
 
-        //Если время равно нулю, то включаем панель проигрыша и останавливаем таймер
+        //Р•СЃР»Рё РІСЂРµРјСЏ СЂР°РІРЅРѕ РЅСѓР»СЋ, С‚Рѕ РІРєР»СЋС‡Р°РµРј РїР°РЅРµР»СЊ РїСЂРѕРёРіСЂС‹С€Р° Рё РѕСЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚Р°Р№РјРµСЂ
         GetComponent<MenuPanelController>().OpenLosePanel();
         StopTimer();
     }
 
-    //Изменение спрайта таймера
+    //РР·РјРµРЅРµРЅРёРµ СЃРїСЂР°Р№С‚Р° С‚Р°Р№РјРµСЂР°
     private void ChangeTimerImg(float percent)
     {
         _newColorForSprite = new Color(1f, 0 + percent, 0 + percent);
@@ -51,13 +48,13 @@ public class TimerController : MonoBehaviour
         _img.fillAmount = percent;
     }
 
-    //Изменение системы частиц таймера
+    //РР·РјРµРЅРµРЅРёРµ СЃРёСЃС‚РµРјС‹ С‡Р°СЃС‚РёС† С‚Р°Р№РјРµСЂР°
     private void ChangeTimerParticle(float percent)
     {
         _timerParticle.startColor = new Color((1 - percent)*2, 0 + percent, 0f); 
     }
 
-    //Для остановки таймера
+    //Р”Р»СЏ РѕСЃС‚Р°РЅРѕРІРєРё С‚Р°Р№РјРµСЂР°
     public void StopTimer()
     {
         StopAllCoroutines();

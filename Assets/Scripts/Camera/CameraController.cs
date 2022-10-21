@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    //Виртуальные камеры
+    //Р’РёСЂС‚СѓР°Р»СЊРЅС‹Рµ РєР°РјРµСЂС‹
     [SerializeField] private GameObject _globalCam;
     [SerializeField] private GameObject _playerCam;
     private CinemachineVirtualCamera _playerVCam;
 
-    //Если переменная равна true, то камера не переключится на общую
+    //Р•СЃР»Рё РїРµСЂРµРјРµРЅРЅР°СЏ СЂР°РІРЅР° true, С‚Рѕ РєР°РјРµСЂР° РЅРµ РїРµСЂРµРєР»СЋС‡РёС‚СЃСЏ РЅР° РѕР±С‰СѓСЋ
     private bool _playerCamEnabled;
 
     private float _camStartDistance;
     private float _camCurDistance;
 
-    //Все для определения дистанции между двумя пальцами
+    //Р’СЃРµ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РґРёСЃС‚Р°РЅС†РёРё РјРµР¶РґСѓ РґРІСѓРјСЏ РїР°Р»СЊС†Р°РјРё
     private float _touchDistance;
     private float _startTouchDistance;
     private Touch _touch0;
@@ -25,9 +23,8 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         _playerVCam = _playerCam.GetComponent<CinemachineVirtualCamera>();
-        //Начальное значение дальности камеры
+        //РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР°Р»СЊРЅРѕСЃС‚Рё РєР°РјРµСЂС‹
         _camStartDistance = _playerVCam.m_Lens.OrthographicSize;
-
         _playerVCam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -39,17 +36,17 @@ public class CameraController : MonoBehaviour
             _touch1 = Input.GetTouch(1);
             if (_startTouchDistance == 0)
             {  
-                //Считаем начальную дистанцию между касаниями
+                //РЎС‡РёС‚Р°РµРј РЅР°С‡Р°Р»СЊРЅСѓСЋ РґРёСЃС‚Р°РЅС†РёСЋ РјРµР¶РґСѓ РєР°СЃР°РЅРёСЏРјРё
                 _startTouchDistance = Mathf.Abs(Vector2.Distance(_touch0.position, _touch1.position));
             }
             else
             {
-                //Если один ищ пальцев двигается
+                //Р•СЃР»Рё РѕРґРёРЅ РёР· РїР°Р»СЊС†РµРІ РґРІРёРіР°РµС‚СЃСЏ
                 if (_touch0.deltaPosition != Vector2.zero || _touch1.deltaPosition != Vector2.zero)
                 {
                     CheckDistance();
                 }
-                //Если один из пальец убрали, тогда заканчиваем жест
+                //Р•СЃР»Рё РѕРґРёРЅ РёР· РїР°Р»СЊРµС† СѓР±СЂР°Р»Рё, С‚РѕРіРґР° Р·Р°РєР°РЅС‡РёРІР°РµРј Р¶РµСЃС‚
                 if (_touch0.phase == TouchPhase.Ended || _touch1.phase == TouchPhase.Ended)
                 {
                     _startTouchDistance = 0;
@@ -61,19 +58,19 @@ public class CameraController : MonoBehaviour
 
     private void CheckDistance()
     {
-        //Считаем дистанцию между пальцами и вычисляем нужную дистанцию для жеста
+        //РЎС‡РёС‚Р°РµРј РґРёСЃС‚Р°РЅС†РёСЋ РјРµР¶РґСѓ РїР°Р»СЊС†Р°РјРё Рё РІС‹С‡РёСЃР»СЏРµРј РЅСѓР¶РЅСѓСЋ РґРёСЃС‚Р°РЅС†РёСЋ РґР»СЏ Р¶РµСЃС‚Р°
         _touchDistance = Mathf.Abs(Vector2.Distance(_touch0.position, _touch1.position));
         float distanceToIncrease = _startTouchDistance;
         float distanceToReduce = _startTouchDistance;
 
-        //Приближение
+        //РџСЂРёР±Р»РёР¶РµРЅРёРµ
         if(_touchDistance > distanceToIncrease)
         {
-            //Включаем камеру над игроком
+            //Р’РєР»СЋС‡Р°РµРј РєР°РјРµСЂСѓ РЅР°Рґ РёРіСЂРѕРєРѕРј
             _playerCamEnabled = true;
             _playerCam.SetActive(_playerCamEnabled);
 
-            //Проверяем, можем ли приближать камеру
+            //РџСЂРѕРІРµСЂСЏРµРј, РјРѕР¶РµРј Р»Рё РїСЂРёР±Р»РёР¶Р°С‚СЊ РєР°РјРµСЂСѓ
             _playerVCam.m_Lens.OrthographicSize -= 0.1f;
             _camCurDistance = _playerVCam.m_Lens.OrthographicSize;
             if (_camCurDistance <= 5f)
@@ -81,16 +78,16 @@ public class CameraController : MonoBehaviour
                 _playerVCam.m_Lens.OrthographicSize = 5;
             }
         }
-        //Отдаление
+        //РћС‚РґР°Р»РµРЅРёРµ
         if(_touchDistance < distanceToReduce)
         {       
-            //Проверяем, можем ли отдалять камеру
+            //РџСЂРѕРІРµСЂСЏРµРј, РјРѕР¶РµРј Р»Рё РѕС‚РґР°Р»СЏС‚СЊ РєР°РјРµСЂСѓ
             if (_camCurDistance <= 15f)
             {
                 _playerVCam.m_Lens.OrthographicSize += 0.1f;
                 _camCurDistance = _playerVCam.m_Lens.OrthographicSize;
             }
-            //Выключаем камеру над игроком
+            //Р’С‹РєР»СЋС‡Р°РµРј РєР°РјРµСЂСѓ РЅР°Рґ РёРіСЂРѕРєРѕРј
             else
             {
                 _playerCamEnabled = false;

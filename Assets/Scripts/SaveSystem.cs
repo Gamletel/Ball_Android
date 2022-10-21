@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GlobalVars.Vars;
@@ -11,7 +9,7 @@ using static GlobalVars.Vars;
 
             private void Start()
             {
-                //Если нет данных о сохранении, то делаем переменные для сохранения 0, чтобы избежать ошибок об отсутствии
+                //Р•СЃР»Рё РЅРµС‚ РґР°РЅРЅС‹С… Рѕ СЃРѕС…СЂР°РЅРµРЅРёРё, С‚Рѕ РґРµР»Р°РµРј РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ 0, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РѕС€РёР±РѕРє РѕР± РѕС‚СЃСѓС‚СЃС‚РІРёРё
                 if (!PlayerPrefs.HasKey("LastLvl"))
                 {
                     PlayerPrefs.SetInt("LastLvl", 0);
@@ -22,7 +20,7 @@ using static GlobalVars.Vars;
                 }
             }
 
-        //При закрытии приложения сохраняем прогресс
+        //РџСЂРё Р·Р°РєСЂС‹С‚РёРё РїСЂРёР»РѕР¶РµРЅРёСЏ СЃРѕС…СЂР°РЅСЏРµРј РїСЂРѕРіСЂРµСЃСЃ
         #if UNITY_ANDROID && !UNITY_EDITOR
                 private void OnApplicationPause(bool pause)
                 {
@@ -40,40 +38,40 @@ using static GlobalVars.Vars;
                 PlayerPrefs.Save();
             }
 
-            //Сохранение монеток
+            //РЎРѕС…СЂР°РЅРµРЅРёРµ РјРѕРЅРµС‚РѕРє
             public void SaveCoins(int coinCost)
             {
                 PlayerPrefs.SetInt("CoinsAmount", coinsAmount += coinCost);
-                Debug.Log($"Сохраненная сумма монеток: {PlayerPrefs.GetInt("CoinsAmount")}");
+                Debug.Log($"РЎРѕС…СЂР°РЅРµРЅРЅР°СЏ СЃСѓРјРјР° РјРѕРЅРµС‚РѕРє: {PlayerPrefs.GetInt("CoinsAmount")}");
             }
 
-            //Загрузка сохраненного количества монеток
+            //Р—Р°РіСЂСѓР·РєР° СЃРѕС…СЂР°РЅРµРЅРЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° РјРѕРЅРµС‚РѕРє
             public int LoadCoins(int coinsAmount)
             {
                 coinsAmount = PlayerPrefs.GetInt("CoinsAmount");
-                Debug.Log($"Загружено монеток из банка: {coinsAmount}");
+                Debug.Log($"Р—Р°РіСЂСѓР¶РµРЅРѕ РјРѕРЅРµС‚РѕРє РёР· Р±Р°РЅРєР°: {coinsAmount}");
                 return coinsAmount;
             }
 
-            //Сохранение последнего пройденого уровня
+            //РЎРѕС…СЂР°РЅРµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ РїСЂРѕР№РґРµРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ
             public void SaveLastLvl()
             {
                 if (SceneManager.GetActiveScene().buildIndex > PlayerPrefs.GetInt("LastLvl"))
                 {
                     PlayerPrefs.SetInt("LastLvl", SceneManager.GetActiveScene().buildIndex);
-                    Debug.Log($"Уровень {SceneManager.GetActiveScene().buildIndex} сохранен!");
+                    Debug.Log($"РЈСЂРѕРІРµРЅСЊ {SceneManager.GetActiveScene().buildIndex} СЃРѕС…СЂР°РЅРµРЅ!");
                 }
                 else
-                    Debug.Log("Сохранение не требуется!");
+                    Debug.Log("РЎРѕС…СЂР°РЅРµРЅРёРµ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ!");
             }
 
-            //Загрузка последнего сохраненного уровня
+            //Р—Р°РіСЂСѓР·РєР° РїРѕСЃР»РµРґРЅРµРіРѕ СЃРѕС…СЂР°РЅРµРЅРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ
             public void LoadLastSavedLvl()
             {
                 SceneManager.LoadScene(PlayerPrefs.GetInt("LastLvl"));
             }
 
-            //Загрузка следующего уровня
+            //Р—Р°РіСЂСѓР·РєР° СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ
             public void LoadNextLvl()
             {
                 int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -84,14 +82,14 @@ using static GlobalVars.Vars;
                 Time.timeScale = 1;
             }
 
-            //Перезапуск уровня
+            //РџРµСЂРµР·Р°РїСѓСЃРє СѓСЂРѕРІРЅСЏ
             public void RestartLvl()
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 Time.timeScale = 1;
             }
 
-            //Читаем данные сохранения
+            //Р§РёС‚Р°РµРј РґР°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅРёСЏ
             public void ReadData(int maxLvl, int coinsAmount)
             {
                 

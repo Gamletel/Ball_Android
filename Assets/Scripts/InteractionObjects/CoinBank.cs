@@ -1,28 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static GlobalVars.Vars;
 public class CoinBank : MonoBehaviour
 {
-    //ПРИ ПОДБОРЕ смотрим добавляем монетки
+    //РџР Р РџРћР”Р‘РћР Р• СЃРјРѕС‚СЂРёРј РґРѕР±Р°РІР»СЏРµРј РјРѕРЅРµС‚РєРё
     public delegate void CoinHandler(int coinCost);
     public static event CoinHandler coinCollected;
 
-
-    //Всего монеток
+    //Р’СЃРµРіРѕ РјРѕРЅРµС‚РѕРє
     public static int coinsAmount { get; private set; }
 
-
-    //Загружаем и обновляем изначальное количество монеток
+    //Р—Р°РіСЂСѓР¶Р°РµРј Рё РѕР±РЅРѕРІР»СЏРµРј РёР·РЅР°С‡Р°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅРµС‚РѕРє
     public static int LoadCoins()
     {
         coinsAmount = saveSystem.LoadCoins(coinsAmount);
         return coinsAmount;
     }
 
-
-    //Добавляем монетки
+    //Р”РѕР±Р°РІР»СЏРµРј РјРѕРЅРµС‚РєРё
     public static void OnCoinCollected(int coinCost)
     {
         coinsAmount += coinCost;

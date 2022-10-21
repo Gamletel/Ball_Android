@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using static GlobalVars.Vars;
 
 public class MenuPanelController : MonoBehaviour
 {
@@ -21,26 +18,26 @@ public class MenuPanelController : MonoBehaviour
     private void Start()
     {
         _tween = _mainMenuPanel.GetComponent<DOTweenAnimation>();
-        _nameLvlText.text = $"Уровень: {SceneManager.GetActiveScene().buildIndex}";
-        //Подписываемся на событие
+        _nameLvlText.text = $"РЈСЂРѕРІРµРЅСЊ: {SceneManager.GetActiveScene().buildIndex}";
+        //РџРѕРґРїРёСЃС‹РІР°РµРјСЃСЏ РЅР° СЃРѕР±С‹С‚РёРµ
         CoinBank.coinCollected += OnCoinCollected;
-        //Загружаем изначальное значение монеток
+        //Р—Р°РіСЂСѓР¶Р°РµРј РёР·РЅР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РјРѕРЅРµС‚РѕРє
         UpdateCoinsAmount(CoinBank.coinsAmount);
     }
 
-    //Вызывается при сборе монетки
+    //Р’С‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё СЃР±РѕСЂРµ РјРѕРЅРµС‚РєРё
     private void OnCoinCollected(int coinsAmount)
     {
         UpdateCoinsAmount(coinsAmount);
     }
 
-    //Обновляем количество монеток
+    //РћР±РЅРѕРІР»СЏРµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅРµС‚РѕРє
     private void UpdateCoinsAmount(int coinsAmount)
     {
-        _collectedCoinsText.text = $"Монеток: {coinsAmount}";
+        _collectedCoinsText.text = $"РњРѕРЅРµС‚РѕРє: {coinsAmount}";
     }
 
-    //Для открытия/закрытия боковой панели
+    //Р”Р»СЏ РѕС‚РєСЂС‹С‚РёСЏ/Р·Р°РєСЂС‹С‚РёСЏ Р±РѕРєРѕРІРѕР№ РїР°РЅРµР»Рё
     public void MovePanel()
     {
         switch (!_playBackwards)
@@ -48,25 +45,25 @@ public class MenuPanelController : MonoBehaviour
             case true:
                 _tween.DOPlayForward();
                 _playBackwards = !_playBackwards;
-                _openMenuBtnText.text = "Закрыть";
+                _openMenuBtnText.text = "Р—Р°РєСЂС‹С‚СЊ";
                 return;
             case false:
                 _tween.DOPlayBackwards();
                 _playBackwards = !_playBackwards;
-                _openMenuBtnText.text = "Меню";
+                _openMenuBtnText.text = "РњРµРЅСЋ";
                 return;
         }
         
     }
 
-    //Обновляем id уровня на панели сверху
+    //РћР±РЅРѕРІР»СЏРµРј id СѓСЂРѕРІРЅСЏ РЅР° РїР°РЅРµР»Рё СЃРІРµСЂС…Сѓ
     public void LoadMenuScene()
     {
         int menuSceneIndex = 0;
         SceneManager.LoadScene(menuSceneIndex);
     }
 
-    //Вызывать когда нужно открыть меню Победы/Проигрыша
+    //Р’С‹Р·С‹РІР°С‚СЊ РєРѕРіРґР° РЅСѓР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ РјРµРЅСЋ РџРѕР±РµРґС‹/РџСЂРѕРёРіСЂС‹С€Р°
     public void OpenWinPanel()
     {
         _winPanel.SetActive(true);

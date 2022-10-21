@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,7 +5,8 @@ public class PlayerController : MonoBehaviour
     
 
 }
-//Не помню зачем
+
+//РќРµ РїРѕРјРЅСЋ Р·Р°С‡РµРј
 namespace Player
 {
     public class Player : MonoBehaviour

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    //Считываем координаты движения пальца по экрану
+    //РЎС‡РёС‚С‹РІР°РµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РґРІРёР¶РµРЅРёСЏ РїР°Р»СЊС†Р° РїРѕ СЌРєСЂР°РЅСѓ
     public Vector2 GetTouchDeltaPos()
     {
         if(Input.touchCount > 0)
@@ -12,7 +10,7 @@ public class InputHandler : MonoBehaviour
         return Vector2.zero;
     }
 
-    //переменная для того, чтобы было ясно есть касание или нет
+    //РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ Р±С‹Р»Рѕ СЏСЃРЅРѕ РµСЃС‚СЊ РєР°СЃР°РЅРёРµ РёР»Рё РЅРµС‚
     public bool isTouched()
     {
         if (Input.touchCount == 1)

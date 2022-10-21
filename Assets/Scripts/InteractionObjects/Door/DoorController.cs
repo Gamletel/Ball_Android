@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -10,13 +8,13 @@ public class DoorController : MonoBehaviour
 
     private void Start()
     {
-        //Создаем рандомный цвет для пары дверь/ключ и назначаем им материалы
+        //РЎРѕР·РґР°РµРј СЂР°РЅРґРѕРјРЅС‹Р№ С†РІРµС‚ РґР»СЏ РїР°СЂС‹ РґРІРµСЂСЊ/РєР»СЋС‡ Рё РЅР°Р·РЅР°С‡Р°РµРј РёРј РјР°С‚РµСЂРёР°Р»С‹
         RandomizeMaterial();
         _key.GetComponent<MeshRenderer>().material = _material;
         _door.GetComponent<MeshRenderer>().material = _material;
     }
 
-    //Когда игрок зашел в триггер ключ удаляется, а дверь открывается
+    //РљРѕРіРґР° РёРіСЂРѕРє Р·Р°С€РµР» РІ С‚СЂРёРіРіРµСЂ РєР»СЋС‡ СѓРґР°Р»СЏРµС‚СЃСЏ, Р° РґРІРµСЂСЊ РѕС‚РєСЂС‹РІР°РµС‚СЃСЏ
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(typeof(PlayerController), out Component component))
@@ -25,12 +23,10 @@ public class DoorController : MonoBehaviour
             OpenDoor();
         }
         else
-        {
             return;
-        }
     }
 
-    //Создаем рандомный материал
+    //РЎРѕР·РґР°РµРј СЂР°РЅРґРѕРјРЅС‹Р№ РјР°С‚РµСЂРёР°Р»
     private void RandomizeMaterial()
     {
         Color color = new Color(Random.value, Random.value, Random.value, 1);
@@ -38,12 +34,10 @@ public class DoorController : MonoBehaviour
         _material.color = color;
     }
 
-
     private void DestroyKey()
     {
         Destroy(_key);
     }
-    
 
     private void OpenDoor()
     {

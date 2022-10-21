@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Player;
 
 namespace GlobalVars
 {
     public class Vars : MonoBehaviour
     {
-        //скрипт с системой сохранений
+        //СЃРєСЂРёРїС‚ СЃ СЃРёСЃС‚РµРјРѕР№ СЃРѕС…СЂР°РЅРµРЅРёР№
         public static SaveSystem saveSystem = GameObject.FindGameObjectWithTag("SaveSystem").GetComponent<SaveSystem>();
 
-        //сколько всего сцен в билде
+        //СЃРєРѕР»СЊРєРѕ РІСЃРµРіРѕ СЃС†РµРЅ РІ Р±РёР»РґРµ
         public static int sceneCount = SceneManager.sceneCountInBuildSettings;
         
     }

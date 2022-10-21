@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(InputHandler))]
@@ -20,7 +18,7 @@ public class MovementHandler : MonoBehaviour
         _audioSource.Play();
     }
 
-    //Если получаем касание, тогда начинаем добавлять силу к игроку в соответствующую сторону
+    //Р•СЃР»Рё РїРѕР»СѓС‡Р°РµРј РєР°СЃР°РЅРёРµ, С‚РѕРіРґР° РЅР°С‡РёРЅР°РµРј РґРѕР±Р°РІР»СЏС‚СЊ СЃРёР»Сѓ Рє РёРіСЂРѕРєСѓ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰СѓСЋ СЃС‚РѕСЂРѕРЅСѓ
     void FixedUpdate()
     {
         if (_input.isTouched())
@@ -30,7 +28,7 @@ public class MovementHandler : MonoBehaviour
         PlayMoveSound();
     }
 
-    //Смотрим в каком направлении прилагать силу и применяем эту силу
+    //РЎРјРѕС‚СЂРёРј РІ РєР°РєРѕРј РЅР°РїСЂР°РІР»РµРЅРёРё РїСЂРёР»Р°РіР°С‚СЊ СЃРёР»Сѓ Рё РїСЂРёРјРµРЅСЏРµРј СЌС‚Сѓ СЃРёР»Сѓ
     private void MoveBall()
     {
         _curDeltaPos = new Vector3(_input.GetTouchDeltaPos().x, 0, _input.GetTouchDeltaPos().y);
@@ -39,7 +37,7 @@ public class MovementHandler : MonoBehaviour
 
     }
 
-    //Воспроизведение звука перекатывания шара
+    //Р’РѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ Р·РІСѓРєР° РїРµСЂРµРєР°С‚С‹РІР°РЅРёСЏ С€Р°СЂР°
     private void PlayMoveSound()
     {
         _audioSource.volume = _rb.angularVelocity.magnitude/10;

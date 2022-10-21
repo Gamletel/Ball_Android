@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorPrefabDestroyer : MonoBehaviour
 {
-    //В конце анимации открытия двери вызываем этот метод
+    //Р’ РєРѕРЅС†Рµ Р°РЅРёРјР°С†РёРё РѕС‚РєСЂС‹С‚РёСЏ РґРІРµСЂРё РІС‹Р·С‹РІР°РµРј СЌС‚РѕС‚ РјРµС‚РѕРґ
     public void DestroyDoorPrefab()
     {
         Destroy(transform.parent.gameObject);

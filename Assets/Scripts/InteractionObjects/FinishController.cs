@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishController : MonoBehaviour
@@ -8,7 +6,6 @@ public class FinishController : MonoBehaviour
     private MenuPanelController _menuPanelController;
     private TimerController _timer;
 
-
     private void Start()
     {
         _ui = GameObject.FindGameObjectWithTag("GameUI");
@@ -16,7 +13,7 @@ public class FinishController : MonoBehaviour
         _timer = _ui.GetComponent<TimerController>();
     }
 
-    //Если игрок зашел в триггер, то показывается панель победы и вызывается метод остановки таймера
+    //Р•СЃР»Рё РёРіСЂРѕРє Р·Р°С€РµР» РІ С‚СЂРёРіРіРµСЂ, С‚Рѕ РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РїР°РЅРµР»СЊ РїРѕР±РµРґС‹ Рё РІС‹Р·С‹РІР°РµС‚СЃСЏ РјРµС‚РѕРґ РѕСЃС‚Р°РЅРѕРІРєРё С‚Р°Р№РјРµСЂР°
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(typeof(PlayerController), out Component component))

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 [RequireComponent(typeof(AudioSource))]
 public class WallController : MonoBehaviour
@@ -14,7 +11,7 @@ public class WallController : MonoBehaviour
         _audioSourse = GetComponent<AudioSource>();
     }
 
-    //Если игрок коснется стены, то воспроизведется звук удара
+    //Р•СЃР»Рё РёРіСЂРѕРє РєРѕСЃРЅРµС‚СЃСЏ СЃС‚РµРЅС‹, С‚Рѕ РІРѕСЃРїСЂРѕРёР·РІРµРґРµС‚СЃСЏ Р·РІСѓРє СѓРґР°СЂР°
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent(typeof(PlayerController), out Component component))
@@ -23,7 +20,7 @@ public class WallController : MonoBehaviour
         }
     }
 
-    //Воспроизведение звука удара
+    //Р’РѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ Р·РІСѓРєР° СѓРґР°СЂР°
     private void Punch()
     {
         _audioSourse.PlayOneShot(_wallPunchSound);

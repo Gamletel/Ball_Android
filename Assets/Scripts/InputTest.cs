@@ -17,22 +17,22 @@ public class InputTest : MonoBehaviour
 
             case 1:
                 Touch touch = Input.GetTouch(0);
-                //Тап на месте (палец отпустили в том же месте где и нажали)
+                //РўР°Рї РЅР° РјРµСЃС‚Рµ (РїР°Р»РµС† РѕС‚РїСѓСЃС‚РёР»Рё РІ С‚РѕРј Р¶Рµ РјРµСЃС‚Рµ РіРґРµ Рё РЅР°Р¶Р°Р»Рё)
                 if(touch.phase == TouchPhase.Ended && touch.rawPosition == touch.position)
                 {
-                        Debug.Log("Тап на месте!");
+                        Debug.Log("РўР°Рї РЅР° РјРµСЃС‚Рµ!");
                 }
 
-                //Для бесконечных свайпов
+                //Р”Р»СЏ Р±РµСЃРєРѕРЅРµС‡РЅС‹С… СЃРІР°Р№РїРѕРІ
                  if (touch.phase == TouchPhase.Moved)
                  {
                      if (touch.deltaPosition.x >= 100 && Mathf.Abs(touch.deltaPosition.y) <= 50)
                      {
-                         Debug.Log("Свайп вправо!");
+                         Debug.Log("РЎРІР°Р№Рї РІРїСЂР°РІРѕ!");
                      }
                      if (touch.deltaPosition.x <= -100 && Mathf.Abs(touch.deltaPosition.y) <= 50)
                      {
-                         Debug.Log("Свайп влево!");
+                         Debug.Log("РЎРІР°Р№Рї РІР»РµРІРѕ!");
                      }
                  }
                 
@@ -51,7 +51,7 @@ public class InputTest : MonoBehaviour
                 }
                 if (touch0.phase == TouchPhase.Ended)
                 {
-                    Debug.LogWarning("Расстояние между пальцами: ");
+                    Debug.LogWarning("Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ РїР°Р»СЊС†Р°РјРё: ");
                     CheckDistance(touch0, touch1);
                 }
                 return;
@@ -71,11 +71,11 @@ public class InputTest : MonoBehaviour
         float neededDistanceToReduce = _startDistance - (_startDistance / 100 * 10);
         if (_curDistance > neededDistanceToIncrease)
         {
-            Debug.LogWarning("Жест увеличение");
+            Debug.LogWarning("Р–РµСЃС‚ СѓРІРµР»РёС‡РµРЅРёРµ");
         }
         if (_curDistance < neededDistanceToReduce)
         {
-            Debug.LogWarning("Жест уменьшение");
+            Debug.LogWarning("Р–РµСЃС‚ СѓРјРµРЅСЊС€РµРЅРёРµ");
         }
     }
 }

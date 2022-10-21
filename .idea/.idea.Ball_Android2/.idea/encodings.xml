@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/GlobalVars.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InputTest.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InteractionObjects/CoinBank.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InteractionObjects/CoinController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InteractionObjects/Door/DoorController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InteractionObjects/Door/DoorPrefabDestroyer.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/InteractionObjects/FinishController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/LvlAutoSaver.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/MovementHandler.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/SaveSystem.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/InfoPanelVars.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/MenuPanelController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/TimerController.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/WallController.cs" charset="UTF-8" />
+  </component>
+</project>

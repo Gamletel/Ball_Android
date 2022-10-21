@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,19 +9,17 @@ public class InfoPanelVars : MonoBehaviour
     private int _maxLvl;
     private int _coinsAmount;
 
-
-    //При запуске приложения читаем данные сохранения
+    //РџСЂРё Р·Р°РїСѓСЃРєРµ РїСЂРёР»РѕР¶РµРЅРёСЏ С‡РёС‚Р°РµРј РґР°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅРёСЏ
     void Start()
     {
         _saveSystem.ReadData(_maxLvl, _coinsAmount);
         UpdateInfo();
     }
 
-
-    //Обновляем данные
+    //РћР±РЅРѕРІР»СЏРµРј РґР°РЅРЅС‹Рµ
     private void UpdateInfo()
     {
-        _maxLvlTxt.text = $"Уровней пройдено: {_maxLvl}";
-        _coinsAmountTxt.text = $"Собрано монеток: {_coinsAmount}";
+        _maxLvlTxt.text = $"РЈСЂРѕРІРЅРµР№ РїСЂРѕР№РґРµРЅРѕ: {_maxLvl}";
+        _coinsAmountTxt.text = $"РЎРѕР±СЂР°РЅРѕ РјРѕРЅРµС‚РѕРє: {_coinsAmount}";
     }
 }
